@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpsxvbes0mplg"]
+[gd_scene load_steps=4 format=3 uid="uid://cpsxvbes0mplg"]
 
 [ext_resource type="Script" path="res://scrpits/players/player.gd" id="1_23hns"]
 [ext_resource type="Texture2D" uid="uid://ddkpyqaftdj5i" path="res://graphics/Man Blue/manBlue_gun.png" id="1_lvcy8"]
 
-[node name="player" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrgjr"]
+height = 42.0
+
+[node name="player" type="CharacterBody2D"]
 script = ExtResource("1_23hns")
 
 [node name="player_sprite" type="Sprite2D" parent="."]
+position = Vector2(9, 0)
 texture = ExtResource("1_lvcy8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xrgjr")
