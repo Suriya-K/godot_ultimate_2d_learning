@@ -10,6 +10,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	test_scale += 0.1 * delta
-	player.scale = Vector2(test_scale,test_scale)
 	pass
