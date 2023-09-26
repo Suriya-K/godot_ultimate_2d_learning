@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal laser
+signal grenade
+
 @onready var gun_timer: Timer = $gun_timer
 @onready var grenade_timer: Timer = $grenade_timer
 
@@ -19,12 +22,12 @@ func _process(_delta):
 	move_and_slide()
 	
 	if Input.is_action_pressed("primary_action") and gun_can_shoot:
-		print("Shoot")
+		laser.emit()
 		gun_can_shoot = false
 		gun_timer.start()
 	
 	if Input.is_action_just_pressed("secondary_action") and grenade_can_shoot:
-		print("Shoot Grenade")
+		grenade.emit()
 		grenade_can_shoot = false
 		grenade_timer.start()
 		
