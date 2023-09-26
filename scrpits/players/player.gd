@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-signal laser(maker_position: Vector2)
-signal grenade(maker_position: Vector2)
+signal laser(maker_position: Vector2, direction: Vector2)
+signal grenade(maker_position: Vector2, direction: Vector2)
 
 @onready var gun_timer: Timer = $gun_timer
 @onready var grenade_timer: Timer = $grenade_timer
@@ -20,20 +20,23 @@ func _ready():
 func _process(_delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	self.velocity = direction * 500
-	move_and_slide()
+	self.move_and_slide()
 	
+	self.look_at(self.get_global_mouse_position())
+	
+	var player_direction: Vector2 = (self.get_global_mouse_position() - self.position).normalized()
 	if Input.is_action_pressed("primary_action") and gun_can_shoot:
 		var seleted_bullet: Node = bullet_markers[randi() % bullet_markers.size()]
-		laser.emit(seleted_bullet.global_position)
+		laser.emit(seleted_bullet.global_position, player_direction)
 		gun_can_shoot = false
 		gun_timer.start()
 	
 	if Input.is_action_pressed("secondary_action") and grenade_can_shoot:
 		var seleted_bullet: Node = bullet_markers[randi() % bullet_markers.size()]
-		grenade.emit(seleted_bullet.global_position)
+		grenade.emit(seleted_bullet.global_position, player_direction)
 		grenade_can_shoot = false
 		grenade_timer.start()
-		
+	
 
 
 func _on_gun_timer_timeout():

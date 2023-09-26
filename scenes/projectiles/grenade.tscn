@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://fr65m5kesp4p"]
+[gd_scene load_steps=4 format=3 uid="uid://fr65m5kesp4p"]
 
 [ext_resource type="Texture2D" uid="uid://b3gwj66gjxdyv" path="res://graphics/weapon_gun.png" id="1_5shap"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ht83d"]
+friction = 10.0
+bounce = 0.4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojjon"]
 size = Vector2(18, 10)
 
 [node name="grenade" type="RigidBody2D"]
+scale = Vector2(1.25, 1.25)
+physics_material_override = SubResource("PhysicsMaterial_ht83d")
 gravity_scale = 0.0
+linear_damp = 1.6
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0.635294, 0.145098, 1)

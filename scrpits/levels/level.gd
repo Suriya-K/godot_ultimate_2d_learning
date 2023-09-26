@@ -14,15 +14,19 @@ func _process(_delta):
 
 
 
-func _on_player_laser(marker_position: Vector2):
+func _on_player_laser(marker_position: Vector2, direction: Vector2):
 	var bullet: Area2D = bullet_scenes.instantiate()
 	bullet.scale = Vector2(0.15,0.15)
+	bullet.direction = direction
 	bullet.position = marker_position
 	$projectiles.add_child(bullet)
 
 
-func _on_player_grenade(marker_position: Vector2):
-	var grenade: RigidBody2D = grenade_scenes.instantiate()
+func _on_player_grenade(marker_position: Vector2, direction: Vector2):
+	var grenade: RigidBody2D = grenade_scenes.instantiate() as RigidBody2D
 	grenade.position = marker_position
+	grenade.rotation = direction.angle()
+	grenade.linear_velocity = direction * 100
+	grenade.scale = Vector2(2.25,2.25)
 	$projectiles.add_child(grenade)
 	pass
