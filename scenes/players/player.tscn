@@ -20,5 +20,16 @@ shape = SubResource("CapsuleShape2D_xrgjr")
 
 [node name="grenade_timer" type="Timer" parent="."]
 
+[node name="bullet_start_position" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="bullet_start_position"]
+position = Vector2(32, 10)
+
+[node name="Marker2D2" type="Marker2D" parent="bullet_start_position"]
+position = Vector2(32, 6)
+
+[node name="Marker2D3" type="Marker2D" parent="bullet_start_position"]
+position = Vector2(32, 14)
+
 [connection signal="timeout" from="gun_timer" to="." method="_on_gun_timer_timeout"]
 [connection signal="timeout" from="grenade_timer" to="." method="_on_grenade_timer_timeout"]
