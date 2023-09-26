@@ -31,5 +31,9 @@ position = Vector2(32, 6)
 [node name="Marker2D3" type="Marker2D" parent="bullet_start_position"]
 position = Vector2(32, 14)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 11.0
+
 [connection signal="timeout" from="gun_timer" to="." method="_on_gun_timer_timeout"]
 [connection signal="timeout" from="grenade_timer" to="." method="_on_grenade_timer_timeout"]
