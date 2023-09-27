@@ -17,10 +17,10 @@ func _ready():
 	grenade_timer.wait_time = gun_reload_timer
 	
 
-func _process(_delta):
+func _process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	self.velocity = direction * 500
-	self.move_and_slide()
+	move_and_slide()
 	
 	self.look_at(self.get_global_mouse_position())
 	
