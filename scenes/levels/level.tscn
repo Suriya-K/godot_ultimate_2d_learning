@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://w21li621gbot"]
+[gd_scene load_steps=8 format=3 uid="uid://w21li621gbot"]
 
 [ext_resource type="Script" path="res://scrpits/levels/level.gd" id="1_l45s5"]
 [ext_resource type="PackedScene" uid="uid://cpsxvbes0mplg" path="res://scenes/players/player.tscn" id="1_q8ttg"]
 [ext_resource type="Texture2D" uid="uid://do8my1n3j5k86" path="res://graphics/tilesheet_complete.png" id="2_i4onc"]
 [ext_resource type="PackedScene" uid="uid://18rlg6t33ru7" path="res://scenes/houses/house_orange.tscn" id="4_nqtmi"]
+[ext_resource type="PackedScene" uid="uid://b1702i6oq2qx6" path="res://scenes/objects/fire_place.tscn" id="5_jfjjp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r38fk"]
 texture = ExtResource("2_i4onc")
@@ -561,6 +562,9 @@ position = Vector2(-2, 747)
 [node name="player" parent="." instance=ExtResource("1_q8ttg")]
 
 [node name="projectiles" type="Node2D" parent="."]
+
+[node name="fire_place" parent="." instance=ExtResource("5_jfjjp")]
+position = Vector2(-88, 914)
 
 [connection signal="grenade" from="player" to="." method="_on_player_grenade"]
 [connection signal="laser" from="player" to="." method="_on_player_laser"]

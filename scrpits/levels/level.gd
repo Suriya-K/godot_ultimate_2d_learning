@@ -26,7 +26,6 @@ func _on_player_grenade(marker_position: Vector2, direction: Vector2):
 	var grenade = grenade_scenes.instantiate() as RigidBody2D
 	grenade.position = marker_position
 	grenade.rotation = direction.angle()
-	grenade.linear_velocity = direction * 100
-	grenade.scale = Vector2(2.25,2.25)
+	grenade.linear_velocity = direction * 1000
 	$projectiles.add_child(grenade)
 	pass
