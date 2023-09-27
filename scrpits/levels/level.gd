@@ -15,7 +15,7 @@ func _process(_delta):
 
 
 func _on_player_laser(marker_position: Vector2, direction: Vector2):
-	var bullet: Area2D = bullet_scenes.instantiate()
+	var bullet = bullet_scenes.instantiate() as Area2D
 	bullet.scale = Vector2(0.15,0.15)
 	bullet.direction = direction
 	bullet.position = marker_position
@@ -23,7 +23,7 @@ func _on_player_laser(marker_position: Vector2, direction: Vector2):
 
 
 func _on_player_grenade(marker_position: Vector2, direction: Vector2):
-	var grenade: RigidBody2D = grenade_scenes.instantiate() as RigidBody2D
+	var grenade = grenade_scenes.instantiate() as RigidBody2D
 	grenade.position = marker_position
 	grenade.rotation = direction.angle()
 	grenade.linear_velocity = direction * 100
