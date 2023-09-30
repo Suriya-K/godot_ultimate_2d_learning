@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://18rlg6t33ru7"]
+[gd_scene load_steps=8 format=3 uid="uid://18rlg6t33ru7"]
 
 [ext_resource type="Script" path="res://scrpits/houses/house_orange.gd" id="1_6kefg"]
 [ext_resource type="Texture2D" uid="uid://do8my1n3j5k86" path="res://graphics/tilesheet_complete.png" id="1_om8g0"]
@@ -227,6 +227,9 @@ sources/1 = SubResource("TileSetAtlasSource_dga61")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ji7b"]
 size = Vector2(70, 98)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rpc7t"]
+polygon = PackedVector2Array(0, 704, 0, 0, 10, 0, 10, 704)
+
 [node name="house_orange" type="StaticBody2D"]
 collision_layer = 16
 script = ExtResource("1_6kefg")
@@ -253,5 +256,8 @@ collision_layer = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(35, 384)
 shape = SubResource("RectangleShape2D_8ji7b")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_rpc7t")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
