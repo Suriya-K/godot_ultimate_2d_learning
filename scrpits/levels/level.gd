@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name level_parrent
+
 @onready var player: CharacterBody2D = $player
 var bullet_scenes: PackedScene = preload("res://scenes/projectiles/bullet.tscn")
 var grenade_scenes: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
@@ -33,15 +35,3 @@ func _on_player_grenade(marker_position: Vector2, direction: Vector2):
 	grenade.linear_velocity = direction * 1000
 	$projectiles.add_child(grenade)
 	pass
-
-
-func _on_house_orange_player_entered():
-	var tween: Tween = create_tween()
-	tween.set_parallel(true)
-	tween.tween_property(player,'speed',0,0.1)
-	tween.tween_property(player_camera, 'zoom', Vector2(1,1), 1)
-
-
-func _on_house_orange_player_exited():
-	var tween: Tween = create_tween()
-	tween.tween_property(player_camera, 'zoom', Vector2(0.8,0.8), 1)

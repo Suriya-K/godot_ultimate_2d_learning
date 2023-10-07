@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0cbf3fh0xfpg"]
+
+[ext_resource type="PackedScene" uid="uid://du1v7binobbnu" path="res://scenes/objects/item_container.tscn" id="1_3gvpu"]
+[ext_resource type="Script" path="res://scrpits/objects/idk.gd" id="2_6b5i2"]
+[ext_resource type="Texture2D" uid="uid://c1oto6cldy3le" path="res://graphics/Tiles/tile_297.png" id="2_lol8m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ildpe"]
+size = Vector2(64, 62)
+
+[node name="item_container" instance=ExtResource("1_3gvpu")]
+script = ExtResource("2_6b5i2")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_lol8m")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ildpe")

@@ -12,7 +12,7 @@ func _process(delta):
 	self.position += direction * speed * delta
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	self.queue_free()
 
 
