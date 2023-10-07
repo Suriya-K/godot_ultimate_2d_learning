@@ -17,3 +17,10 @@ texture = ExtResource("1_wpw0m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_71a13")
+
+[node name="self_remove_timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="self_remove_timer" to="." method="_on_self_remove_timer_timeout"]
