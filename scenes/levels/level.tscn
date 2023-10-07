@@ -575,5 +575,7 @@ color = Color(1, 0.941176, 0.960784, 1)
 energy = 0.3
 blend_mode = 1
 
+[connection signal="player_entered" from="house_orange" to="." method="_on_house_orange_player_entered"]
+[connection signal="player_exited" from="house_orange" to="." method="_on_house_orange_player_exited"]
 [connection signal="grenade" from="player" to="." method="_on_player_grenade"]
 [connection signal="laser" from="player" to="." method="_on_player_laser"]

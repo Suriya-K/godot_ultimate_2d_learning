@@ -261,3 +261,4 @@ shape = SubResource("RectangleShape2D_8ji7b")
 occluder = SubResource("OccluderPolygon2D_rpc7t")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
