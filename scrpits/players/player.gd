@@ -30,14 +30,16 @@ func _process(_delta):
 	self.look_at(self.get_global_mouse_position())
 	
 	var player_direction: Vector2 = (self.get_global_mouse_position() - self.position).normalized()
-	if Input.is_action_pressed("primary_action") and gun_can_shoot:
+	if Input.is_action_pressed("primary_action") and gun_can_shoot and Globals.bullets > 0:
+		Globals.bullets -= 1
 		var seleted_bullet: Node = bullet_markers[randi() % bullet_markers.size()]
 		laser.emit(seleted_bullet.global_position, player_direction)
 		gun_can_shoot = false
 		gpu_particles_2d.emitting = true
 		gun_timer.start()
 	
-	if Input.is_action_pressed("secondary_action") and grenade_can_shoot:
+	if Input.is_action_pressed("secondary_action") and grenade_can_shoot and Globals.grenade > 0:
+		Globals.grenade -= 1
 		var seleted_bullet: Node = bullet_markers[randi() % bullet_markers.size()]
 		grenade.emit(seleted_bullet.global_position, player_direction)
 		grenade_can_shoot = false

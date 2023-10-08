@@ -26,6 +26,7 @@ func _on_player_laser(marker_position: Vector2, direction: Vector2):
 	bullet.direction = direction
 	bullet.position = marker_position
 	$projectiles.add_child(bullet)
+	$UI.update_bullet_counter()
 
 
 func _on_player_grenade(marker_position: Vector2, direction: Vector2):
@@ -34,4 +35,4 @@ func _on_player_grenade(marker_position: Vector2, direction: Vector2):
 	grenade.rotation = direction.angle()
 	grenade.linear_velocity = direction * 1000
 	$projectiles.add_child(grenade)
-	pass
+	$UI.update_grenade_counter()
