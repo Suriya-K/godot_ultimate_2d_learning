@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpsxvbes0mplg"]
+
+[ext_resource type="Texture2D" uid="uid://ddkpyqaftdj5i" path="res://graphics/Man Blue/manBlue_gun.png" id="1_lvcy8"]
+
+[node name="player" type="Node2D"]
+
+[node name="player_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_lvcy8")
