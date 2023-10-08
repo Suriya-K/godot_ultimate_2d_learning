@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://4sdcj6ytb2sm"]
+
+[ext_resource type="Script" path="res://scrpits/projectiles/bullet.gd" id="1_byvh6"]
+[ext_resource type="Texture2D" uid="uid://bhnlacxky7klu" path="res://graphics/Tiles/tile_132.png" id="1_wpw0m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_71a13"]
+radius = 20.0
+
+[node name="bullet" type="Area2D"]
+position = Vector2(1, 0)
+collision_layer = 8
+collision_mask = 22
+script = ExtResource("1_byvh6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wpw0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_71a13")
+
+[node name="self_remove_timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="self_remove_timer" to="." method="_on_self_remove_timer_timeout"]

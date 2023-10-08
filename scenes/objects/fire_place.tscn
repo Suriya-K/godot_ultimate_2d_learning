@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1702i6oq2qx6"]
+
+[ext_resource type="Texture2D" uid="uid://dtudhy4whwiow" path="res://graphics/Tiles/tile_206.png" id="1_6bmg6"]
+[ext_resource type="Texture2D" uid="uid://ctx8bvs8viesf" path="res://graphics/Tiles/tile_186.png" id="2_w0p1c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5segx"]
+radius = 32.0
+
+[sub_resource type="Gradient" id="Gradient_wroam"]
+colors = PackedColorArray(1, 0.843137, 0.533333, 1, 1, 0.403922, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jrw5d"]
+gradient = SubResource("Gradient_wroam")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gup0p"]
+emission_shape = 1
+emission_sphere_radius = 31.21
+particle_flag_disable_z = true
+gravity = Vector3(45, -98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.1
+scale_max = 0.5
+color = Color(1, 0.843137, 0.533333, 1)
+color_ramp = SubResource("GradientTexture1D_jrw5d")
+
+[node name="fire_place" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5segx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6bmg6")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_gup0p")
+texture = ExtResource("2_w0p1c")
+lifetime = 1.5
