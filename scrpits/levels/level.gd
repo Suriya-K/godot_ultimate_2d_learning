@@ -13,7 +13,6 @@ func _ready():
 	player_camera = camera_scenes.instantiate() as Camera2D
 	player.add_child(player_camera)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass

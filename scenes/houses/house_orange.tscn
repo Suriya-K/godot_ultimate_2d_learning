@@ -261,5 +261,8 @@ shape = SubResource("RectangleShape2D_8ji7b")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_rpc7t")
 
+[node name="marker" type="Marker2D" parent="."]
+position = Vector2(-36, 384)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
