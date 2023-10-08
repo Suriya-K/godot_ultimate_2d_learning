@@ -567,6 +567,5 @@ position = Vector2(579, 341)
 [node name="simple_light" parent="." index="7" instance=ExtResource("5_hygqv")]
 position = Vector2(1376, 371)
 
-[connection signal="marker_pos" from="house_orange" to="." method="_on_house_orange_marker_pos"]
 [connection signal="player_entered" from="house_orange" to="." method="_on_house_orange_player_entered"]
 [connection signal="player_exited" from="house_orange" to="." method="_on_house_orange_player_exited"]
