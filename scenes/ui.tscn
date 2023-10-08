@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://u0h7rga3vr7c"]
+[gd_scene load_steps=3 format=3 uid="uid://u0h7rga3vr7c"]
 
+[ext_resource type="Script" path="res://scrpits/ui.gd" id="1_7kj3e"]
 [ext_resource type="Texture2D" uid="uid://b3gwj66gjxdyv" path="res://graphics/weapon_gun.png" id="1_861h1"]
 
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_7kj3e")
 
 [node name="bullet_counter" type="Control" parent="."]
 layout_mode = 3
